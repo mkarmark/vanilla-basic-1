@@ -1,0 +1,51 @@
+{
+    "routes": [
+        {
+            "route": "/_app/*",
+            "allowedRoles": ["viewer"],
+            "headers": {
+                "cache-control": "max-age=15770000"
+            }
+        },
+        {
+            "route": "/favicons/*",
+            "allowedRoles": ["viewer"],
+            "headers": {
+                "cache-control": "must-revalidate, max-age=15770000"
+            }
+        },
+        {
+            "route": "/fonts/*",
+            "allowedRoles": ["viewer"],
+            "headers": {
+                "cache-control": "must-revalidate, max-age=15770000"
+            }
+        },
+        {
+            "route": "/images/*",
+            "allowedRoles": ["viewer"],
+            "headers": {
+                "cache-control": "must-revalidate, max-age=15770000"
+            }
+        },
+        {
+            "route": "/*",
+            "allowedRoles": ["viewer"]
+        }
+    ],
+    "responseOverrides": {
+        "400": {
+          "rewrite": "/error/index.html"
+        },
+        "401": {
+          "rewrite": "/.auth/login/aad",
+          "statusCode": 302
+        },
+        "403": {
+          "rewrite": "/error/index.html"
+        },
+        "404": {
+          "rewrite": "/error/index.html"
+        }
+      }
+}
