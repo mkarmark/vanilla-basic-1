@@ -38,7 +38,7 @@
           "rewrite": "/error/index.html"
         },
         "401": {
-          "rewrite": "/.auth/login/aad",
+          "redirect": "/.auth/login/aad",
           "statusCode": 302
         },
         "403": {
